@@ -1,37 +1,43 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
+import {AiOutlineLike, AiOutlineDislike} from "react-icons/ai"
+import YouTube from 'react-youtube';
 
+//get props from screen
+const ListVideo = (props) => {
 
-export default class ListVideo extends Component {
-    render() {
         return (
-            <div  style={{width : 500, justifyItems : 'center'}}>
-                <div class="box text-center" style={{width : 200, height : 50, backgroundColor : 'white', left : 200, marginTop : -20, position : 'absolute', zIndex : 1, justifyContent : 'center', alignItems : 'center', alignContent : 'center'}}>
-                    <p className="text-center mt-2">Share a Youtube Movie</p>
-                    </div>
-                <div class="hadow p-3 mb-5 bg-white rounded">
-                <div class="row mt-5">
-                    <div class="col-lg-3">
-                        Youtube Link
-                    </div>
-                        <div class="col-lg-9">
-                        <input 
-                        type="text" 
-                        placeholder="URL" 
-                        name="url"    
-                        value={this.state.url}
-                        onChange={this.handleChange} 
-                         />
+            <Fragment>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="row">
+                        <div class="col-lg">
+                        <YouTube
+                            videoId={props.link}
+                            opts={props.opt}
+                            onReady={props.ready}
+                            />
                         </div>
-                </div>
-                <br/>
-                <div class="row text-center">
-                    <div class="col-lg-12">
-                    <button onClick={()=>this.newMovie()} class="btn btn-outline-danger" style={{width : 300}}>Share</button>
+                        <div class="col-lg">
+                            <h4>{props.title}</h4>
+                            <p>Shared by :  {props.email} </p>
+                            <span style={{fontSize:16}}>{props.likes}</span> 
+                            <button onClick={() => {this.sendlike("likes", props.id)}}
+                            class="btn">
+                                <AiOutlineLike style={{fontSize:25 ,color : 'red'}}/>
+                        </button>
+                        <span style={{fontSize:16, marginLeft:20}}>{props.unlikes}</span> 
+                        <button 
+                        onClick={() => {this.sendlike("unlikes", props.id)}}
+                            class="btn"
+                            style={{marginLeft:5, color : 'red'}}>
+                            <AiOutlineDislike style={{fontSize:25}}/>
+                        </button><br/>
+                        <b>Description :</b>
+                        <p>{props.description}</p>
+                        </div>
                     </div>
-                    
                 </div>
-                </div>
-            </div>
+            </Fragment>
         )
-    }
 }
+
+export default ListVideo

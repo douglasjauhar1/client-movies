@@ -3,7 +3,6 @@ import { FaHome } from "react-icons/fa";
 import {Link, Route, Redirect} from 'react-router-dom'
 import axios from 'axios'
 import './style.scss'
-import ListVideo from '../../components/ListVideo';
 
 const API_URL = "http://localhost:4000"
 
@@ -25,7 +24,7 @@ class Movie extends React.Component {
                 url: 'https://www.googleapis.com/youtube/v3/videos',
                 params: {
                   part: "snippet",
-                  key: 'AIzaSyApCy9eVPhWHQC_32uJDRX-tbwCSlHjWys',
+                  key: 'AIzaSyB1LCC6__Nu6aYdf8PsN6LYosYi6aMryNc',
                   id: id
                 }
             });
