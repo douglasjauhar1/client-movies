@@ -1,34 +1,37 @@
 import React, { Component } from 'react'
-import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+
 
 export default class ListVideo extends Component {
     render() {
         return (
-            <div class="container mt-5">
-            <div class="card">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <div class="row">
-              <div class="col-lg">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9u14cHmJJpWkkFHT20hPKwYtJDXZi9gNbqgJ2KssPPNm_ngh7&s" width="450" height="200"/>
+            <div  style={{width : 500, justifyItems : 'center'}}>
+                <div class="box text-center" style={{width : 200, height : 50, backgroundColor : 'white', left : 200, marginTop : -20, position : 'absolute', zIndex : 1, justifyContent : 'center', alignItems : 'center', alignContent : 'center'}}>
+                    <p className="text-center mt-2">Share a Youtube Movie</p>
+                    </div>
+                <div class="hadow p-3 mb-5 bg-white rounded">
+                <div class="row mt-5">
+                    <div class="col-lg-3">
+                        Youtube Link
+                    </div>
+                        <div class="col-lg-9">
+                        <input 
+                        type="text" 
+                        placeholder="URL" 
+                        name="url"    
+                        value={this.state.url}
+                        onChange={this.handleChange} 
+                         />
+                        </div>
                 </div>
-                  <div class="col-lg">
-                    <p>Title Video</p>
-                    <p>douglasjauhar@mail.com</p>
-                  <div class="col-lg">
-                  <h6>70 <AiFillLike/>
-                  70 <AiFillDislike/></h6>
-                  </div>
-                  <p class="card-text">Description : With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-              </div>
+                <br/>
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                    <button onClick={()=>this.newMovie()} class="btn btn-outline-danger" style={{width : 300}}>Share</button>
+                    </div>
+                    
+                </div>
+                </div>
             </div>
-          </div>
-            </div>
-     
         )
     }
 }

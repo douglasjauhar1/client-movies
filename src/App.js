@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import  { 
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import Home from './screens/Home/Home'
+import Movie from './screens/Movie/Movie'
+// import Share from './screen/share/share'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-   <div className="btn btn-primary">Klik</div>
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  render(){
+    return(
+      <Router>
+        <Route exact path ={'/'} component={Home}/>
+        <Route exact path ={'/movie'} component={Movie}/>
+      </Router>
+    )
+  }
 }
 
-export default App;
+export default App

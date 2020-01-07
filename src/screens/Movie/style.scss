@@ -1,0 +1,16 @@
+.inputs {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid red;
+    color: #555;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 50px;
+    position: relative;
+    top: -50%;
+    width: 260px;
+  
+    &:focus {
+      outline: none;    
+    }
+  }
